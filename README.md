@@ -8,4 +8,4 @@ classes, objects, instances, attributes, methods, inheritance, polymorphism, enc
 ● A better understanding of how some of the standard libraries are structured.
 
 The repository is built step by step.
-
+A new line :)
