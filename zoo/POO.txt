@@ -1,0 +1,327 @@
+PYTHON ORIENTÉ OBJET
+
+
+1 - Introduction à l’orienté objet en Python
+
+(a) Qu’est-ce que la programmation orientée objet ?
+
+POO : une autre manière d’imaginer, de construire et d’organiser son code.
+Objets qui sont des entités qui vont pouvoir posséder un ensemble de variables et de fonctions qui leur sont propres.
+Créer des scripts plus clairs, mieux structurés, plus modulables et plus faciles à maintenir et à déboguer.
+
+
+(b) Python, un langage orienté objet
+
+Le langage tout entier est construit autour de la notion d’objets. 
+Quasiment tout en Python est avant tout un objet: types, fonctions, etc.
+
+
+(c) Qu’est-ce qu’un objet en programmation ?
+
+Dans la vie réelle, un objet possède des caractéristiques et nous permet de réaliser des actions:
+    - un crayon par exemple possède une taille, une couleur, une forme (caractéristiques)
+    - il permet d’écrire ou de dessiner (actions)
+Le concept d’objets en informatique s’inspire fortement de cette définition de la vie réelle :
+    - l'objet "classe" est un bloc cohérent de code qui possède ses propres variables (caractéristiques) => "attributs de données"
+    - et fonctions (actions) => "méthodes"
+
+
+(d) Comment crée-t-on un objet ? Présentation des classes
+
+En POO, un objet ne peut pas être créé ex nihiliste (à partir de rien).
+Une classe va nous servir de plan pour créer des objets.
+possédant un même ensemble de d’attributs de données et de méthodes de base.
+Pour créer des objets à partir d’une classe en Python, on va utiliser cette classe comme une fonction.
+
+
+(e) Création d’une première classe et d’objets Python
+
+Mot clef "class" suivi du nom de notre classe (par convention le nom d’une classe commence toujours par une majuscule).
+Cette classe peut posséder une/plusieurs variables => attributs de données
+Cette classe peut définir une/plusieurs fonctions => méthodes
+
+Pour créer des objets à partir de cette classe, nous allons utiliser la syntaxe Animal()
+singe = Animal()
+zebre = Animal()
+
+Lorsqu’on crée un objet à partir d’une classe comme ceci, on instancie une classe (nouvelle instance d’une classe).
+Ici, on instancie notre classe et on place le résultat dans une variable "singe"
+qui devient automatiquement un objet de type "Animal".
+
+La chose que vous devez absolument comprendre ici est que les objets créés à partir d’une classe en Python
+vont automatiquement avoir accès aux variables et fonctions définies dans la classe
+qui vont être pour eux des attributs de données et des méthodes.
+
+Notre objet "singe" dispose donc ici de deux attributs de données "poids" et "taille"
+qui possède les valeurs "60" et "90"
+et a également accès à la méthode se_déplacer().
+
+Pour accéder aux attributs de données et aux méthodes d’un objet,
+on mentionne l’objet
+suivi de l’opérateur . (point)
+suivi du nom de l’attribut de donnée ou de la méthode à laquelle on souhaite accéder
+
+Nos objets vont également pouvoir définir des valeurs personnalisées pour leurs attributs de données
+et on va également pouvoir définir de nouveaux attributs de données
+qui vont être propres à un objet en particulier dans une classe
+
+
+(f) Conclusion sur cette introduction à l’orienté objet Python
+
+Essayez simplement de retenir ces deux points pour la suite :
+Les classes sont des ensembles de code qui contiennent des variables et des fonctions et qui vont nous servir à créer des objets.
+Les objets créés à partir d’une classe disposent automatiquement des variables et des fonctions définies dans la classe.
+
+
+
+
+
+2 - Classes, objets et attributs en Python orienté objet
+
+(a) Différence entre variable et attribut de données et entre fonction et méthode
+
+Les classes permettent de réunir des données et des fonctionnalités.
+Une classe n’est finalement qu’un objet qui permet de créer d’autres objets de même type.
+
+Créer une nouvelle classe en Python revient à créer un nouveau type d’objet et de fait un nouveau type de données.
+On peut ensuite instancer la classe pour créer des objets qui vont partager les variables et fonctions de leur classe.
+
+Pour désigner les variables et les fonctions que les objets héritent de leur classe,
+Python utilise les termes “attributs de données” et “méthodes”. 
+
+L’idée principale à retenir ici est:
+    - qu’un attribut de donnée ou une méthode est propre à un objet
+    - tandis qu’une variable ou une fonction est indépendante de tout objet
+Donc pour accéder à un attribut de données ou à une méthode, on doit préciser le nom de l’objet qui souhaite y accéder avant.
+
+Si on tente d’accéder à un attribut de donnée ou à une méthode définis
+dans une classe sans objet ou à partir d’un objet d’une autre classe,
+Python renverra une erreur : 
+    - les attributs de données de classe et les méthodes de classes sont propres
+    - ils ne sont partagés que par les objets de la classe.
+C’est le principe “d’encapsulation” !
+
+Un objet peut également définir ses propres attributs de données ou surcharger des attributs de données de classe. 
+
+
+(b) Les classes et le principe d’encapsulation
+
+L’un des grands intérêts des classes est qu’elles permettent l’encapsulation du code,
+c’est-à-dire le fait d’enfermer le code dans une “capsule”, dans un espace en dehors de l’espace global.
+Cela permet d’éviter d’utiliser des variables globales et de polluer l’espace global du script.
+
+En effet, dans tous les langages de programmation, il est considéré comme une bonne pratique de
+limiter le recours aux variables globales car cela rend le code non flexible, non modulable, et dur à entretenir.
+
+Pour cette raison, un bon développeur fera tout pour compartimenter son code :
+    - en créant des espaces de portée ou “espaces de noms” bien définis
+    - et dont les éléments ne pourront pas entrer en conflit avec les autres
+
+Les classes permettent cela puisque chaque objet créé à partir d’une classe :
+    - va posséder SES attributs de données et SES méthodes
+    - qui ne vont pas être accessibles depuis l’extérieur de l’objet
+    - et qui ne vont donc pas polluer l’espace global
+
+
+(c) Initialiser des objets avec __init__()
+
+Généralement, les objets disposent déjà d’attributs avec des valeurs qui leur sont propres dès leur création.
+
+On modifie la classe pour lui ajouter une fonction spéciale appelée __init__()
+(deux underscores avant et deux après le nom) qui permet “d’initialiser” ou de “construire” nos objets. 
+
+L’idée générale est la suivante :
+la fonction __init__() est construite de sorte que
+les arguments passés soient utilisés comme valeur d’initalisation pour les attributs d’une instance.
+On va passer les argument lors de l’instanciation, via Animal()
+et ces arguments vont être transmis à __init__().
+
+Notre classe Animal() est désormais composée de deux fonctions __init()__ et se_deplacer().
+La fonction __init__() accepte trois paramètres en entrée qu’on a ici nommé "self", "poids" et "taille". 
+
+L’objet qui appelle la méthode est passé comme premier argument de la fonction telle que définie dans la classe.
+Ex : lorsqu’on écrit monkey.se_deplacer(), l’objet "monkey" est passé de manière implicite à se_deplacer().
+
+
+Lorsqu’on instancie notre classe, c’est-à-dire lorsqu’on crée un nouvel objet à partir de cette classe,
+la fonction __init__() est automatiquement appelée si elle est présente dans la définition de la classe.
+
+Les fonctions de classe possèdent toujours un paramètre de plus que d’arguments qui leur sont fournies
+lorsqu’elles sont appelées en tant que méthode : l’objet qui les appelle prendra la place de ce paramètre.
+Par convention, on appelle ce paramètre self qui signifie “soi-même” (l’objet lui-même va être passé en argument).
+
+Cette fonction va également recevoir l’objet qui est en train d’être créé en premier argument.
+Cet objet va donc remplacer le “self”.
+Ici, notre fonction __init__() sert à effectuer deux affectations : self.animal_weight = weight et self.animal_size = size.
+
+Ces deux affectations signifient littéralement:
+    - crée un attribut de données "animal_weight"
+    qui sera propre à l’instance et affecte lui la valeur passée en argument "weight"
+    - crée un attribut de données "animal_size"
+    qui sera propre à l’instance et affecte lui la valeur passée en argument "size"
+
+Lorsqu’on écrit monkey = Animal("60", "90"),
+les deux arguments passés “60” et “90” vont être transmis avec l’objet à __init__()
+qui va les utiliser pour créer deux attributs de données "animal_weight" et "animal_size" spécifique à l’objet "monkey" créé. 
+
+
+(d) Variables de classe et attributs de données d’un objet
+
+Une bonne pratique est de créer des variables de classe
+seulement pour définir des variables qui devraient avoir des valeurs constantes à travers les différents objet de la classe.
+
+Dans l’exemple précédent, par exemple, on peut imaginer que notre classe Animal
+nous sert à créer un nouvel objet de type "Animal" dès qu’un nouvel animal intègre le zoo.
+
+On évitera de créer des variables de classe avec des données altérables comme des listes ou des dictionnaires
+sauf dans des cas très précis. En effet, une variable de classe “appartient” à tous les objets de la classe par défaut.
+
+Si la variable contient des données altérables, alors n’importe quel objet va pouvoir modifier ces données.
+Or, si un objet modifie les données d’une telle variable de classe,
+le contenu de la variable sera modifié pour tous les objets de la classe. 
+
+
+
+
+
+3 - Héritage et polymorphisme en Python orienté objet
+
+Les trois piliers de la programmation orientée objet sont : le principe d’encapsulation, l’héritage et le polymorphisme. 
+Dans cette leçon, nous allons présenter et étudier ces concepts en détail
+et comprendre pourquoi et comment les implémenter dans notre code.
+
+
+(a) Présentation du concept d’héritage en Python orienté objet
+
+En programmation orientée objet, “hériter” signifie “avoir également accès à”.
+Quand un objet “hérite” des méthodes de la classe qui l’a défini, alors l’objet peut utiliser ces méthodes (il y a accès).
+
+La notion d’héritage est intéressante lorsqu’on l’implémente entre deux classes.
+En Python, on peut créer des “sous-classes” ou des classes “filles” à partir de classes de base ou classes “mères”.
+A partir de la classe de base Animal (class Animal) on peut définir la sous-classe Serpent : class Serpent(Animal).
+
+Par défaut, la sous-classe hérite de toutes les variables et fonctions de la classe parent, comme sa fonction __init__(),
+et peut également définir ses propres variables et fonctions.
+
+On peut instancier la classe enfant pour créer de nouveaux objets
+et ces objets vont avoir accès aux variables et fonctions définies à la fois dans la sous-classe et dans la classe de base.
+monkey = Animal("60", "90")
+python = Serpent("20", "200")
+
+Ce principe d’héritage permet de créer des classes de base qui vont définir des fonctionnalités communes à plusieurs classes
+puis des sous-classes qui vont hériter de ces fonctionnalités et définir leurs propres fonctionnalités.
+
+On obtient ainsi un code plus modulable, mieux organisé, plus clair et plus concis.
+
+
+(b) La surcharge des méthodes de classe
+
+“Surcharger” une méthode signifie la redéfinir d’une façon différente.
+En Python, les classes filles ou sous-classes vont pouvoir surcharger les méthodes héritées de leur classe parent
+et également pouvoir définir des variables de même nom que celles de leur classe parent.
+On parlera de surcharge seulement pour les méthodes (pas pour les variables) !
+
+En pratique, on voudra simplement “étendre” la méthode càd lui rajouter des instructions spécifiques pour une classe fille.
+Pour cela, on appelle la méthode de notre classe mère depuis notre classe fille avec la syntaxe super().nomDeMethode().
+
+On peut réécrire la classe Serpent()
+afin de définir certaines variables locales
+et de surcharger les méthodes de la classe mère Animal()
+
+
+(c) Les tests d’héritage Python
+
+Comment l’objet fait pour déterminer si il doit utiliser les variables ou méthodes de sa classe
+ou de la classe mère dont sa classe hérite ?
+Python va rechercher les variables et méthodes dans un ordre précis !!
+
+Lorsqu’on tente d’afficher le contenu d’un attribut de données ou d’appeler une méthode depuis un objet
+Python va commencer par chercher si la variable ou la fonction correspondantes se trouvent dans la classe qui a créé l’objet:
+    - Si oui, il utilisera cette variable ou fonction
+    - Sinon, il cherche dans la classe mère de la classe de l’objet:
+        - si cette classe possède une classe mère, il utilisera cette variable ou fonction
+        - sinon, il cherche dans la classe mère de la classe mère si elle existe, etc
+
+Python “remonte” le long de la chaine d’héritage des classes jusqu’à trouver l’information demandée.
+Si elle n’est jamais trouvée, il renvoit finalement une erreur.
+
+Notez ici que Python nous fournit également deux fonctions pour nous permettre de tester:
+    - le type d’une instance => fonction isinstance() => True (l'objet appartient au moins à une classe)
+        Ex. isinstance(python, Serpent) = True
+        Ex. isinstance(python, Animal) = True
+    - l’héritage d’une classe => fonction issubclass() => True (la classe fille hérite bien de la classe mère)
+        Ex. issubclass(Oiseau, Animal) = True
+        Ex. issubclass(Animal, Oiseau) = False
+
+Ces deux fonctions sont très utiles pour tester rapidement les liens hiérarchiques entre certaines classes et objets
+et peuvent aider à comprendre plus facilement un script complexe qui nous aurait été passé.
+
+
+(d) Le polymorphisme en Python orienté objet
+
+C'est un concept qui fait référence à la capacité d’une variable, d’une fonction ou d’un objet à prendre plusieurs formes,
+càd à sa capacité de posséder plusieurs définitions différentes. 
+
+Le nouveau mot-clé "pass" crée une fonction vide et ne fait strictement rien en Python.
+Elle est utile, car si on n’écrit rien dans notre fonction l’interpréteur, Python va renvoyer une erreur.
+
+La classe "Animaux" dispose donc d’une fonction seDeplacer() qui ne contient pas d’instruction.
+On créer des sous-classes de "Animaux" pour différents animaux : Oiseau et Serpent. 
+Chaque sous-classe va implémenter/définir cette méthode différemment:
+    - pour la classe Oiseau par exemple, la méthode seDeplacer() renvoie une valeur “voler”
+    - pour la classe Oiseau par exemple, la méthode seDeplacer() renvoie une valeur “ramper”
+
+Ceci est un exemple typique de polymorphisme :
+plusieurs sous-classes héritent d’une méthode d’une classe de base qu’ils implémentent de manière différente.
+
+Le polymorphisme permet également in-fine d’obtenir un code plus clair, plus lisible et plus cohérent :
+on peut fournir des définitions de fonctions vides dans une classe de base
+pour laisser des sous-classes implémenter (définir) ces fonctions de différentes manières. 
+
+
+(e) Héritage multiple
+
+On parle d’héritage multiple en programmation orientée objet lorsqu’une sous-classe peut hériter de plusieurs classes mères différentes.
+
+En Python, dans la majorité des cas, l’héritage va se faire selon l’ordre des classes mères indiquées et cela de manière récursive.
+Imaginons qu’une sous-classe AGrave hérite de trois classes A, Accent et Abracadabra (dans cet ordre):
+
+class Alphabet:
+    ...
+class Mot:
+    ...
+class Accent:
+    ...
+class A(Alphabet):
+    ...
+class Abracadabra(Mot):
+    ...
+class AGrave(A, Accent et Abracadabra):
+    ...
+
+On instance notre classe AGrave et on appelle une méthode depuis notre objet.
+Python va chercher la méthode dans cet ordre:
+AGrave => A (hérité de) => Alphabet => Accent => Abracadabra (hérité de) => Mot
+
+En réalité, Python utilise un algorithme relativement complexe qui détermine l’ordre d’appel (method resolution order, ou MRO en anglais)
+de manière dynamique, c’est-à-dire en fonction des relations entre les différentes classes.
+Dans notre exemple, si les classes A, Accent et Abracadabra avaient eu des parents en commun,
+l’ordre aurait été beaucoup plus complexe à calculer. Ce genre de situations arrive très peu fréquemment et est à éviter !!
+
+
+
+
+
+4 - Gérer la visibilité des membres de classe en Python orienté objet
+
+Python n’implémente pas directement ces concepts de visibilité des membres de classe
+et il est donc impossible de définir un membre comme privé ou protégé :
+par défaut, tous les membres de classe sont publics en Python.
+
+En revanche, certaines conventions ont été mises en place par la communauté Python,
+notamment au niveau des noms des membres de classe qui servent à indiquer aux autres développeurs
+qu’on ne devrait accéder à tel membre que depuis l’intérieur d'une certaine classe. 
+
+Ces conventions sont les suivantes :
+    - on préfixe les noms des membres qu’on souhaite définir comme “privés” avec deux underscores : __nom-du-membre
+    - on préfixe les noms des membres qu’on souhaite définir comme “protégés” avec un underscore : _nom-du-membre
